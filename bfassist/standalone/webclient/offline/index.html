@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>
+			BF-A Web Client(offline)
+		</title>
+		<link rel="stylesheet" href="offline/offlineStyles.css">
+		<script type="text/javascript" src="offline/offlineScript.js">
+		</script>
+	</head>
+	<body>
+		<h1 id="heading">
+			BF-A Web Client(offline)
+		</h1>
+		<form id="loginInputForm" class="inputForm">
+			<fieldset id="loginAndRegisterFieldset">
+				<table>
+					<tbody>
+						<tr>
+							<td>
+								<table>
+									<tbody>
+										<tr>
+											<td>
+												<label for="registerBFAUserKeyhash">
+													Keyhash
+													<input maxlength="32" size="32" type="text" id="registerBFAUserKeyhash">
+													</input>
+												</label>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<label for="registerBFAUserUser">
+													User
+													<input maxlength="32" size="32" type="text" id="registerBFAUserUser">
+													</input>
+												</label>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<label for="registerBFAUserPass">
+													Pass
+													<input maxlength="32" size="32" type="password" id="registerBFAUserPass">
+													</input>
+												</label>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+							<td>
+								<button onClick="registerBFAUserRequest()" type="button">
+									Register
+								</button>
+								<button onClick="loginBFAUserRequest()" type="button">
+									Login
+								</button>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</fieldset>
+		</form>
+		<div id="registerBFAUserOutput">
+		</div>
+	</body>
+</html>

@@ -1,0 +1,191 @@
+tr.scrollTableHead {
+	display: flex;
+}
+
+form#createServerInputForm {
+	visibility: hidden;
+}
+
+div#bfaUsersScrollTableWrapper {
+	width: 600px;
+	height: 200px;
+}
+
+option#deleteBFAUserOption {
+	visibility: hidden;
+}
+
+form#deleteBFAUserInputForm {
+	visibility: hidden;
+}
+
+div.inputPortWrapper {
+	font-weight: bold;
+	left: 50%;
+	background-color: rgba(0,0,0,0.70);
+	top: 50%;
+	height: 300px;
+	border: 2px solid rgb(190,187,187);
+	visibility: hidden;
+	transform: translateX(-50%) translateY(-50%);
+	text-align: center;
+	border-radius: 15px;
+	width: 600px;
+	position: absolute;
+}
+
+option#editServerOption {
+	visibility: hidden;
+}
+
+th.scrollTableHeader {
+	border-right: 1px solid rgb(112,128,144);
+	border-radius: 4px;
+	flex: 1 auto;
+	display: block;
+	border-bottom: 1px solid rgb(238,238,238);
+	overflow-x: hidden;
+	border-left: 1px solid rgb(112,128,144);
+}
+
+div.scrollTableWrapper {
+	border-radius: 15px;
+	padding: 5px;
+	border: 2px solid rgb(190,187,187);
+	display: inherit;
+}
+
+form#editServerInputForm {
+	visibility: hidden;
+}
+
+tbody#bfaServersScrollTableBody {
+	max-height: 150px;
+}
+
+option#createBFAUserOption {
+	visibility: hidden;
+}
+
+form.inputForm {
+	width: 100%;
+	position: fixed;
+}
+
+tbody.scrollTableBody {
+	display: block;
+	width: 100%;
+	overflow-y: scroll;
+	height: auto;
+	border-collapse: collapse;
+}
+
+form#createBFAUserInputForm {
+	visibility: hidden;
+}
+
+h1 {
+	color: rgba(126,187,153,1.00);
+	text-align: center;
+}
+
+.scrollTable ::after {
+	content: '';
+	visibility: hidden;
+	overflow-y: scroll;
+}
+
+div#setupInputPortCloseButton {
+	text-align: right;
+	cursor: pointer;
+	margin-right: 30px;
+}
+
+option#deleteServerOption {
+	visibility: hidden;
+}
+
+h2 {
+	color: rgba(79,169,255,0.79);
+	text-align: center;
+	border: 1px solid rgba(79,169,255,0.20);
+	border-radius: 20px;
+	font-size: 15px;
+	margin: 0;
+}
+
+.scrollTableRow {
+	height: 24px;
+}
+
+form#editBFAUserInputForm {
+	visibility: hidden;
+}
+
+.clickedScrollTableRow {
+	background-color: rgb(41,41,41);
+}
+
+tbody#bfaServersScrollTableBody td.scrollTableCell {
+	border: 2px solid rgba(79,169,255,1.00);
+	overflow: hidden;
+	width: 33.33%;
+}
+
+.scrollTableCellContentWrapper {
+	width: 0px;
+	white-space: nowrap;
+}
+
+div#bfaServersScrollTableWrapper {
+	width: 540px;
+	height: 200px;
+}
+
+tr#bfaUsersScrollTableHead th {
+	width: 16.67%;
+}
+
+option#createServerOption {
+	visibility: hidden;
+}
+
+tbody#bfaUsersScrollTableBody {
+	max-height: 150px;
+}
+
+table.scrollTable {
+	width: 100%;
+}
+
+td#setupPort {
+	vertical-align: top;
+}
+
+form#deleteServerInputForm {
+	visibility: hidden;
+}
+
+tbody#bfaUsersScrollTableBody td.scrollTableCell {
+	border: 2px solid rgba(79,169,255,1.00);
+	overflow: hidden;
+	width: 16.67%;
+}
+
+button {
+	font-weight: bold;
+	border-radius: 15px;
+	cursor: pointer;
+	color: rgba(79,169,255,1.00);
+	font-family: "Agency FB", sans-serif;
+	font-size: 25px;
+}
+
+option#editBFAUserOption {
+	visibility: hidden;
+}
+
+tr#bfaServersScrollTableHead th {
+	width: 33.33%;
+}
+

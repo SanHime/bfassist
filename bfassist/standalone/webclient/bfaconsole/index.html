@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>
+			BF-A Web Client Console
+		</title>
+		<link rel="stylesheet" href="bfaconsole/bfaconsoleStyles.css">
+		<script type="text/javascript" src="bfaconsole/bfaconsoleScript.js">
+		</script>
+		<link rel="stylesheet" href="../webclient/webclientStyles.css">
+		<script type="text/javascript" src="../webclient/webclientScript.js">
+		</script>
+	</head>
+	<body>
+		<h1 id="heading">
+			BF-A Web Client Console
+		</h1>
+		<table id="clientPort">
+			<thead>
+				<tr id="clientPortTopNavigation">
+					<th id="logoutNavigationHeader">
+						<a onClick="logoutBFAUserRequest()" id="logoutPseudoButton" href="../offline">
+							Logout
+						</a>
+					</th>
+					<th>
+						<a href="../webclient">
+							Main
+						</a>
+					</th>
+					<th>
+						<a href="../setup">
+							Setup
+						</a>
+					</th>
+					<th>
+						<a href="../bfaconsole">
+							BF-A Console
+						</a>
+					</th>
+					<th>
+					</th>
+					<th>
+					</th>
+					<th>
+					</th>
+					<th>
+						<a href="../update">
+							Update
+						</a>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td id="consolePort" colspan="8">
+						<div id="bfaConsoleWrapper" class="consoleWrapper">
+							<table id="bfaConsoleLayoutTable" class="consoleLayoutTable">
+								<tbody>
+									<tr>
+										<td id="bfaConsoleInputPort" class="consoleInputPort">
+											<div id="bfaInputScrollTableWrapper" class="scrollTableWrapper">
+												<table>
+													<tbody>
+														<tr class="scrollTableRow">
+															<td class="scrollTableCell">
+																<h4>
+																	addPlayer
+																</h4>
+																<form id="addPlayerInputForm" class="inputForm">
+																	<fieldset id="addPlayerFieldset">
+																		<table>
+																			<tbody>
+																				<tr>
+																					<td>
+																						<table>
+																							<tbody>
+																								<tr>
+																									<td>
+																										<label for="addPlayerKeyhash">
+																											Keyhash
+																											<input maxlength="32" size="32" type="text" id="addPlayerKeyhash">
+																											</input>
+																										</label>
+																									</td>
+																								</tr>
+																								<tr>
+																									<td>
+																										<label for="addPlayerAlias">
+																											Alias
+																											<input maxlength="32" size="32" type="text" id="addPlayerAlias">
+																											</input>
+																										</label>
+																									</td>
+																								</tr>
+																							</tbody>
+																						</table>
+																					</td>
+																					<td>
+																						<button onClick="addPlayerRequest()" type="button">
+																							Submit
+																						</button>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</fieldset>
+																</form>
+															</td>
+														</tr>
+														<tr class="scrollTableRow">
+															<td class="scrollTableCell">
+																<h4>
+																	bfaUpdate
+																</h4>
+																<form id="bfaUpdateInputForm" class="inputForm">
+																	<fieldset id="bfaUpdateFieldset">
+																		<table>
+																			<tbody>
+																				<tr>
+																					<td>
+																						<table>
+																							<tbody>
+																							</tbody>
+																						</table>
+																					</td>
+																					<td>
+																						<button onClick="bfaUpdateRequest()" type="button">
+																							Submit
+																						</button>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</fieldset>
+																</form>
+															</td>
+														</tr>
+														<tr class="scrollTableRow">
+															<td class="scrollTableCell">
+																<h4>
+																	bfaUpgrade
+																</h4>
+																<form id="bfaUpgradeInputForm" class="inputForm">
+																	<fieldset id="bfaUpgradeFieldset">
+																		<table>
+																			<tbody>
+																				<tr>
+																					<td>
+																						<table>
+																							<tbody>
+																							</tbody>
+																						</table>
+																					</td>
+																					<td>
+																						<button onClick="bfaUpgradeRequest()" type="button">
+																							Submit
+																						</button>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</fieldset>
+																</form>
+															</td>
+														</tr>
+														<tr class="scrollTableRow">
+															<td class="scrollTableCell">
+																<h4>
+																	createBFAUser
+																</h4>
+																<form id="createBFAUserInputForm" class="inputForm">
+																	<fieldset id="createBFAUserFieldset">
+																		<table>
+																			<tbody>
+																				<tr>
+																					<td>
+																						<table>
+																							<tbody>
+																								<tr>
+																									<td>
+																										<label for="createBFAUserKeyhash">
+																											Keyhash
+																											<input maxlength="32" size="32" type="text" id="createBFAUserKeyhash">
+																											</input>
+																										</label>
+																									</td>
+																								</tr>
+																							</tbody>
+																						</table>
+																					</td>
+																					<td>
+																						<button onClick="createBFAUserRequest()" type="button">
+																							Submit
+																						</button>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</fieldset>
+																</form>
+															</td>
+														</tr>
+														<tr class="scrollTableRow">
+															<td class="scrollTableCell">
+																<h4>
+																	createServer
+																</h4>
+																<form id="createServerInputForm" class="inputForm">
+																	<fieldset id="createServerFieldset">
+																		<table>
+																			<tbody>
+																				<tr>
+																					<td>
+																						<table>
+																							<tbody>
+																								<tr>
+																									<td>
+																										<label for="createServerBFAName">
+																											BFAName
+																											<input maxlength="32" size="32" type="text" id="createServerBFAName">
+																											</input>
+																										</label>
+																									</td>
+																								</tr>
+																								<tr>
+																									<td>
+																										<label for="createServerBFPath">
+																											BFPath
+																											<input maxlength="32" size="32" type="text" id="createServerBFPath">
+																											</input>
+																										</label>
+																									</td>
+																								</tr>
+																							</tbody>
+																						</table>
+																					</td>
+																					<td>
+																						<button onClick="createServerRequest()" type="button">
+																							Submit
+																						</button>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</fieldset>
+																</form>
+															</td>
+														</tr>
+														<tr class="scrollTableRow">
+															<td class="scrollTableCell">
+																<h4>
+																	deleteBFAUser
+																</h4>
+																<form id="deleteBFAUserInputForm" class="inputForm">
+																	<fieldset id="deleteBFAUserFieldset">
+																		<table>
+																			<tbody>
+																				<tr>
+																					<td>
+																						<table>
+																							<tbody>
+																								<tr>
+																									<td>
+																										<label for="deleteBFAUserKeyhash">
+																											Keyhash
+																											<input maxlength="32" size="32" type="text" id="deleteBFAUserKeyhash">
+																											</input>
+																										</label>
+																									</td>
+																								</tr>
+																							</tbody>
+																						</table>
+																					</td>
+																					<td>
+																						<button onClick="deleteBFAUserRequest()" type="button">
+																							Submit
+																						</button>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</fieldset>
+																</form>
+															</td>
+														</tr>
+														<tr class="scrollTableRow">
+															<td class="scrollTableCell">
+																<h4>
+																	deleteServer
+																</h4>
+																<form id="deleteServerInputForm" class="inputForm">
+																	<fieldset id="deleteServerFieldset">
+																		<table>
+																			<tbody>
+																				<tr>
+																					<td>
+																						<table>
+																							<tbody>
+																								<tr>
+																									<td>
+																										<label for="deleteServerBFAName">
+																											BFAName
+																											<input maxlength="32" size="32" type="text" id="deleteServerBFAName">
+																											</input>
+																										</label>
+																									</td>
+																								</tr>
+																							</tbody>
+																						</table>
+																					</td>
+																					<td>
+																						<button onClick="deleteServerRequest()" type="button">
+																							Submit
+																						</button>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</fieldset>
+																</form>
+															</td>
+														</tr>
+														<tr class="scrollTableRow">
+															<td class="scrollTableCell">
+																<h4>
+																	executeConsoleCommand
+																</h4>
+																<form id="executeConsoleCommandInputForm" class="inputForm">
+																	<fieldset id="executeConsoleCommandFieldset">
+																		<table>
+																			<tbody>
+																				<tr>
+																					<td>
+																						<table>
+																							<tbody>
+																								<tr>
+																									<td>
+																										<label for="executeConsoleCommandBFAName">
+																											BFAName
+																											<input maxlength="32" size="32" type="text" id="executeConsoleCommandBFAName">
+																											</input>
+																										</label>
+																									</td>
+																								</tr>
+																								<tr>
+																									<td>
+																										<label for="executeConsoleCommandcommand">
+																											command
+																											<input maxlength="32" size="32" type="text" id="executeConsoleCommandcommand">
+																											</input>
+																										</label>
+																									</td>
+																								</tr>
+																							</tbody>
+																						</table>
+																					</td>
+																					<td>
+																						<button onClick="executeConsoleCommandRequest()" type="button">
+																							Submit
+																						</button>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</fieldset>
+																</form>
+															</td>
+														</tr>
+														<tr class="scrollTableRow">
+															<td class="scrollTableCell">
+																<h4>
+																	writeToServer
+																</h4>
+																<form id="writeToServerInputForm" class="inputForm">
+																	<fieldset id="writeToServerFieldset">
+																		<table>
+																			<tbody>
+																				<tr>
+																					<td>
+																						<table>
+																							<tbody>
+																								<tr>
+																									<td>
+																										<label for="writeToServerBFAName">
+																											BFAName
+																											<input maxlength="32" size="32" type="text" id="writeToServerBFAName">
+																											</input>
+																										</label>
+																									</td>
+																								</tr>
+																								<tr>
+																									<td>
+																										<label for="writeToServerinMessage">
+																											inMessage
+																											<input maxlength="32" size="32" type="text" id="writeToServerinMessage">
+																											</input>
+																										</label>
+																									</td>
+																								</tr>
+																							</tbody>
+																						</table>
+																					</td>
+																					<td>
+																						<button onClick="writeToServerRequest()" type="button">
+																							Submit
+																						</button>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</fieldset>
+																</form>
+															</td>
+														</tr>
+														<tr class="scrollTableRow">
+															<td class="scrollTableCell">
+																<h4>
+																	connectWithServer
+																</h4>
+																<form id="connectWithServerInputForm" class="inputForm">
+																	<fieldset id="connectWithServerFieldset">
+																		<table>
+																			<tbody>
+																				<tr>
+																					<td>
+																						<table>
+																							<tbody>
+																								<tr>
+																									<td>
+																										<label for="connectWithServerBFAName">
+																											BFAName
+																											<input maxlength="32" size="32" type="text" id="connectWithServerBFAName">
+																											</input>
+																										</label>
+																									</td>
+																								</tr>
+																							</tbody>
+																						</table>
+																					</td>
+																					<td>
+																						<button onClick="connectWithServerRequest()" type="button">
+																							Submit
+																						</button>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</fieldset>
+																</form>
+															</td>
+														</tr>
+														<tr class="scrollTableRow">
+															<td class="scrollTableCell">
+																<h4>
+																	disconnectFromServer
+																</h4>
+																<form id="disconnectFromServerInputForm" class="inputForm">
+																	<fieldset id="disconnectFromServerFieldset">
+																		<table>
+																			<tbody>
+																				<tr>
+																					<td>
+																						<table>
+																							<tbody>
+																								<tr>
+																									<td>
+																										<label for="disconnectFromServerBFAName">
+																											BFAName
+																											<input maxlength="32" size="32" type="text" id="disconnectFromServerBFAName">
+																											</input>
+																										</label>
+																									</td>
+																								</tr>
+																							</tbody>
+																						</table>
+																					</td>
+																					<td>
+																						<button onClick="disconnectFromServerRequest()" type="button">
+																							Submit
+																						</button>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</fieldset>
+																</form>
+															</td>
+														</tr>
+														<tr class="scrollTableRow">
+															<td class="scrollTableCell">
+																<h4>
+																	editBFAUser
+																</h4>
+																<form id="editBFAUserInputForm" class="inputForm">
+																	<fieldset id="editBFAUserFieldset">
+																		<table>
+																			<tbody>
+																				<tr>
+																					<td>
+																						<table>
+																							<tbody>
+																								<tr>
+																									<td>
+																										<label for="editBFAUserKeyhash">
+																											Keyhash
+																											<input maxlength="32" size="32" type="text" id="editBFAUserKeyhash">
+																											</input>
+																										</label>
+																									</td>
+																								</tr>
+																								<tr>
+																									<td>
+																										<label for="editBFAUsernewKeyhash">
+																											newKeyhash
+																											<input maxlength="32" size="32" type="text" id="editBFAUsernewKeyhash">
+																											</input>
+																										</label>
+																									</td>
+																								</tr>
+																								<tr>
+																									<td>
+																										<label for="editBFAUsernewRights">
+																											newRights
+																											<input maxlength="32" size="32" type="text" id="editBFAUsernewRights">
+																											</input>
+																										</label>
+																									</td>
+																								</tr>
+																								<tr>
+																									<td>
+																										<label for="editBFAUsernewMultiLogin">
+																											newMultiLogin
+																											<input maxlength="32" size="32" type="text" id="editBFAUsernewMultiLogin">
+																											</input>
+																										</label>
+																									</td>
+																								</tr>
+																							</tbody>
+																						</table>
+																					</td>
+																					<td>
+																						<button onClick="editBFAUserRequest()" type="button">
+																							Submit
+																						</button>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</fieldset>
+																</form>
+															</td>
+														</tr>
+														<tr class="scrollTableRow">
+															<td class="scrollTableCell">
+																<h4>
+																	editServer
+																</h4>
+																<form id="editServerInputForm" class="inputForm">
+																	<fieldset id="editServerFieldset">
+																		<table>
+																			<tbody>
+																				<tr>
+																					<td>
+																						<table>
+																							<tbody>
+																								<tr>
+																									<td>
+																										<label for="editServerBFAName">
+																											BFAName
+																											<input maxlength="32" size="32" type="text" id="editServerBFAName">
+																											</input>
+																										</label>
+																									</td>
+																								</tr>
+																								<tr>
+																									<td>
+																										<label for="editServernewBFAName">
+																											newBFAName
+																											<input maxlength="32" size="32" type="text" id="editServernewBFAName">
+																											</input>
+																										</label>
+																									</td>
+																								</tr>
+																								<tr>
+																									<td>
+																										<label for="editServernewBFPath">
+																											newBFPath
+																											<input maxlength="32" size="32" type="text" id="editServernewBFPath">
+																											</input>
+																										</label>
+																									</td>
+																								</tr>
+																							</tbody>
+																						</table>
+																					</td>
+																					<td>
+																						<button onClick="editServerRequest()" type="button">
+																							Submit
+																						</button>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</fieldset>
+																</form>
+															</td>
+														</tr>
+														<tr class="scrollTableRow">
+															<td class="scrollTableCell">
+																<h4>
+																	loginBFAUser
+																</h4>
+																<form id="loginBFAUserInputForm" class="inputForm">
+																	<fieldset id="loginBFAUserFieldset">
+																		<table>
+																			<tbody>
+																				<tr>
+																					<td>
+																						<table>
+																							<tbody>
+																								<tr>
+																									<td>
+																										<label for="loginBFAUserKeyhash">
+																											Keyhash
+																											<input maxlength="32" size="32" type="text" id="loginBFAUserKeyhash">
+																											</input>
+																										</label>
+																									</td>
+																								</tr>
+																								<tr>
+																									<td>
+																										<label for="loginBFAUserUser">
+																											User
+																											<input maxlength="32" size="32" type="text" id="loginBFAUserUser">
+																											</input>
+																										</label>
+																									</td>
+																								</tr>
+																								<tr>
+																									<td>
+																										<label for="loginBFAUserPass">
+																											Pass
+																											<input maxlength="32" size="32" type="password" id="loginBFAUserPass">
+																											</input>
+																										</label>
+																									</td>
+																								</tr>
+																							</tbody>
+																						</table>
+																					</td>
+																					<td>
+																						<button onClick="loginBFAUserRequest()" type="button">
+																							Submit
+																						</button>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</fieldset>
+																</form>
+															</td>
+														</tr>
+														<tr class="scrollTableRow">
+															<td class="scrollTableCell">
+																<h4>
+																	logoutBFAUser
+																</h4>
+																<form id="logoutBFAUserInputForm" class="inputForm">
+																	<fieldset id="logoutBFAUserFieldset">
+																		<table>
+																			<tbody>
+																				<tr>
+																					<td>
+																						<table>
+																							<tbody>
+																							</tbody>
+																						</table>
+																					</td>
+																					<td>
+																						<button onClick="logoutBFAUserRequest()" type="button">
+																							Submit
+																						</button>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</fieldset>
+																</form>
+															</td>
+														</tr>
+														<tr class="scrollTableRow">
+															<td class="scrollTableCell">
+																<h4>
+																	registerBFAUser
+																</h4>
+																<form id="registerBFAUserInputForm" class="inputForm">
+																	<fieldset id="registerBFAUserFieldset">
+																		<table>
+																			<tbody>
+																				<tr>
+																					<td>
+																						<table>
+																							<tbody>
+																								<tr>
+																									<td>
+																										<label for="registerBFAUserKeyhash">
+																											Keyhash
+																											<input maxlength="32" size="32" type="text" id="registerBFAUserKeyhash">
+																											</input>
+																										</label>
+																									</td>
+																								</tr>
+																								<tr>
+																									<td>
+																										<label for="registerBFAUserUser">
+																											User
+																											<input maxlength="32" size="32" type="text" id="registerBFAUserUser">
+																											</input>
+																										</label>
+																									</td>
+																								</tr>
+																								<tr>
+																									<td>
+																										<label for="registerBFAUserPass">
+																											Pass
+																											<input maxlength="32" size="32" type="password" id="registerBFAUserPass">
+																											</input>
+																										</label>
+																									</td>
+																								</tr>
+																							</tbody>
+																						</table>
+																					</td>
+																					<td>
+																						<button onClick="registerBFAUserRequest()" type="button">
+																							Submit
+																						</button>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</fieldset>
+																</form>
+															</td>
+														</tr>
+														<tr class="scrollTableRow">
+															<td class="scrollTableCell">
+																<h4>
+																	start
+																</h4>
+																<form id="startInputForm" class="inputForm">
+																	<fieldset id="startFieldset">
+																		<table>
+																			<tbody>
+																				<tr>
+																					<td>
+																						<table>
+																							<tbody>
+																							</tbody>
+																						</table>
+																					</td>
+																					<td>
+																						<button onClick="startRequest()" type="button">
+																							Submit
+																						</button>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</fieldset>
+																</form>
+															</td>
+														</tr>
+														<tr class="scrollTableRow">
+															<td class="scrollTableCell">
+																<h4>
+																	stop
+																</h4>
+																<form id="stopInputForm" class="inputForm">
+																	<fieldset id="stopFieldset">
+																		<table>
+																			<tbody>
+																				<tr>
+																					<td>
+																						<table>
+																							<tbody>
+																							</tbody>
+																						</table>
+																					</td>
+																					<td>
+																						<button onClick="stopRequest()" type="button">
+																							Submit
+																						</button>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</fieldset>
+																</form>
+															</td>
+														</tr>
+														<tr class="scrollTableRow">
+															<td class="scrollTableCell">
+																<h4>
+																	toggleAutoUpdateSetting
+																</h4>
+																<form id="toggleAutoUpdateSettingInputForm" class="inputForm">
+																	<fieldset id="toggleAutoUpdateSettingFieldset">
+																		<table>
+																			<tbody>
+																				<tr>
+																					<td>
+																						<table>
+																							<tbody>
+																							</tbody>
+																						</table>
+																					</td>
+																					<td>
+																						<button onClick="toggleAutoUpdateSettingRequest()" type="button">
+																							Submit
+																						</button>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</fieldset>
+																</form>
+															</td>
+														</tr>
+														<tr class="scrollTableRow">
+															<td class="scrollTableCell">
+																<h4>
+																	toggleAutoUpgradeSetting
+																</h4>
+																<form id="toggleAutoUpgradeSettingInputForm" class="inputForm">
+																	<fieldset id="toggleAutoUpgradeSettingFieldset">
+																		<table>
+																			<tbody>
+																				<tr>
+																					<td>
+																						<table>
+																							<tbody>
+																							</tbody>
+																						</table>
+																					</td>
+																					<td>
+																						<button onClick="toggleAutoUpgradeSettingRequest()" type="button">
+																							Submit
+																						</button>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</fieldset>
+																</form>
+															</td>
+														</tr>
+														<tr class="scrollTableRow">
+															<td class="scrollTableCell">
+																<h4>
+																	getAutoUpdateSetting
+																</h4>
+																<form id="getAutoUpdateSettingInputForm" class="inputForm">
+																	<fieldset id="getAutoUpdateSettingFieldset">
+																		<table>
+																			<tbody>
+																				<tr>
+																					<td>
+																						<table>
+																							<tbody>
+																							</tbody>
+																						</table>
+																					</td>
+																					<td>
+																						<button onClick="getAutoUpdateSettingRequest()" type="button">
+																							Submit
+																						</button>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</fieldset>
+																</form>
+															</td>
+														</tr>
+														<tr class="scrollTableRow">
+															<td class="scrollTableCell">
+																<h4>
+																	getAutoUpgradeSetting
+																</h4>
+																<form id="getAutoUpgradeSettingInputForm" class="inputForm">
+																	<fieldset id="getAutoUpgradeSettingFieldset">
+																		<table>
+																			<tbody>
+																				<tr>
+																					<td>
+																						<table>
+																							<tbody>
+																							</tbody>
+																						</table>
+																					</td>
+																					<td>
+																						<button onClick="getAutoUpgradeSettingRequest()" type="button">
+																							Submit
+																						</button>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</fieldset>
+																</form>
+															</td>
+														</tr>
+														<tr class="scrollTableRow">
+															<td class="scrollTableCell">
+																<h4>
+																	getBFARightScheme
+																</h4>
+																<form id="getBFARightSchemeInputForm" class="inputForm">
+																	<fieldset id="getBFARightSchemeFieldset">
+																		<table>
+																			<tbody>
+																				<tr>
+																					<td>
+																						<table>
+																							<tbody>
+																							</tbody>
+																						</table>
+																					</td>
+																					<td>
+																						<button onClick="getBFARightSchemeRequest()" type="button">
+																							Submit
+																						</button>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</fieldset>
+																</form>
+															</td>
+														</tr>
+														<tr class="scrollTableRow">
+															<td class="scrollTableCell">
+																<h4>
+																	getBFAUser
+																</h4>
+																<form id="getBFAUserInputForm" class="inputForm">
+																	<fieldset id="getBFAUserFieldset">
+																		<table>
+																			<tbody>
+																				<tr>
+																					<td>
+																						<table>
+																							<tbody>
+																								<tr>
+																									<td>
+																										<label for="getBFAUserKeyhash">
+																											Keyhash
+																											<input maxlength="32" size="32" type="text" id="getBFAUserKeyhash">
+																											</input>
+																										</label>
+																									</td>
+																								</tr>
+																							</tbody>
+																						</table>
+																					</td>
+																					<td>
+																						<button onClick="getBFAUserRequest()" type="button">
+																							Submit
+																						</button>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</fieldset>
+																</form>
+															</td>
+														</tr>
+														<tr class="scrollTableRow">
+															<td class="scrollTableCell">
+																<h4>
+																	getBFAUsers
+																</h4>
+																<form id="getBFAUsersInputForm" class="inputForm">
+																	<fieldset id="getBFAUsersFieldset">
+																		<table>
+																			<tbody>
+																				<tr>
+																					<td>
+																						<table>
+																							<tbody>
+																							</tbody>
+																						</table>
+																					</td>
+																					<td>
+																						<button onClick="getBFAUsersRequest()" type="button">
+																							Submit
+																						</button>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</fieldset>
+																</form>
+															</td>
+														</tr>
+														<tr class="scrollTableRow">
+															<td class="scrollTableCell">
+																<h4>
+																	getGlobalMonitoring
+																</h4>
+																<form id="getGlobalMonitoringInputForm" class="inputForm">
+																	<fieldset id="getGlobalMonitoringFieldset">
+																		<table>
+																			<tbody>
+																				<tr>
+																					<td>
+																						<table>
+																							<tbody>
+																							</tbody>
+																						</table>
+																					</td>
+																					<td>
+																						<button onClick="getGlobalMonitoringRequest()" type="button">
+																							Submit
+																						</button>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</fieldset>
+																</form>
+															</td>
+														</tr>
+														<tr class="scrollTableRow">
+															<td class="scrollTableCell">
+																<h4>
+																	getInGameCommands
+																</h4>
+																<form id="getInGameCommandsInputForm" class="inputForm">
+																	<fieldset id="getInGameCommandsFieldset">
+																		<table>
+																			<tbody>
+																				<tr>
+																					<td>
+																						<table>
+																							<tbody>
+																								<tr>
+																									<td>
+																										<label for="getInGameCommandsBFAName">
+																											BFAName
+																											<input maxlength="32" size="32" type="text" id="getInGameCommandsBFAName">
+																											</input>
+																										</label>
+																									</td>
+																								</tr>
+																							</tbody>
+																						</table>
+																					</td>
+																					<td>
+																						<button onClick="getInGameCommandsRequest()" type="button">
+																							Submit
+																						</button>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</fieldset>
+																</form>
+															</td>
+														</tr>
+														<tr class="scrollTableRow">
+															<td class="scrollTableCell">
+																<h4>
+																	getLeagueExtensionAvailability
+																</h4>
+																<form id="getLeagueExtensionAvailabilityInputForm" class="inputForm">
+																	<fieldset id="getLeagueExtensionAvailabilityFieldset">
+																		<table>
+																			<tbody>
+																				<tr>
+																					<td>
+																						<table>
+																							<tbody>
+																							</tbody>
+																						</table>
+																					</td>
+																					<td>
+																						<button onClick="getLeagueExtensionAvailabilityRequest()" type="button">
+																							Submit
+																						</button>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</fieldset>
+																</form>
+															</td>
+														</tr>
+														<tr class="scrollTableRow">
+															<td class="scrollTableCell">
+																<h4>
+																	getPlayer
+																</h4>
+																<form id="getPlayerInputForm" class="inputForm">
+																	<fieldset id="getPlayerFieldset">
+																		<table>
+																			<tbody>
+																				<tr>
+																					<td>
+																						<table>
+																							<tbody>
+																								<tr>
+																									<td>
+																										<label for="getPlayerKeyhash">
+																											Keyhash
+																											<input maxlength="32" size="32" type="text" id="getPlayerKeyhash">
+																											</input>
+																										</label>
+																									</td>
+																								</tr>
+																							</tbody>
+																						</table>
+																					</td>
+																					<td>
+																						<button onClick="getPlayerRequest()" type="button">
+																							Submit
+																						</button>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</fieldset>
+																</form>
+															</td>
+														</tr>
+														<tr class="scrollTableRow">
+															<td class="scrollTableCell">
+																<h4>
+																	getServer
+																</h4>
+																<form id="getServerInputForm" class="inputForm">
+																	<fieldset id="getServerFieldset">
+																		<table>
+																			<tbody>
+																				<tr>
+																					<td>
+																						<table>
+																							<tbody>
+																								<tr>
+																									<td>
+																										<label for="getServerBFAName">
+																											BFAName
+																											<input maxlength="32" size="32" type="text" id="getServerBFAName">
+																											</input>
+																										</label>
+																									</td>
+																								</tr>
+																							</tbody>
+																						</table>
+																					</td>
+																					<td>
+																						<button onClick="getServerRequest()" type="button">
+																							Submit
+																						</button>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</fieldset>
+																</form>
+															</td>
+														</tr>
+														<tr class="scrollTableRow">
+															<td class="scrollTableCell">
+																<h4>
+																	getServers
+																</h4>
+																<form id="getServersInputForm" class="inputForm">
+																	<fieldset id="getServersFieldset">
+																		<table>
+																			<tbody>
+																				<tr>
+																					<td>
+																						<table>
+																							<tbody>
+																							</tbody>
+																						</table>
+																					</td>
+																					<td>
+																						<button onClick="getServersRequest()" type="button">
+																							Submit
+																						</button>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</fieldset>
+																</form>
+															</td>
+														</tr>
+														<tr class="scrollTableRow">
+															<td class="scrollTableCell">
+																<h4>
+																	getUpdate
+																</h4>
+																<form id="getUpdateInputForm" class="inputForm">
+																	<fieldset id="getUpdateFieldset">
+																		<table>
+																			<tbody>
+																				<tr>
+																					<td>
+																						<table>
+																							<tbody>
+																							</tbody>
+																						</table>
+																					</td>
+																					<td>
+																						<button onClick="getUpdateRequest()" type="button">
+																							Submit
+																						</button>
+																					</td>
+																				</tr>
+																			</tbody>
+																		</table>
+																	</fieldset>
+																</form>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</td>
+										<td id="bfaConsoleOutputPort" class="consoleOutputPort">
+											<textarea id="bfaConsoleOutput" class="consoleOutput">
+											</textarea>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

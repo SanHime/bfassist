@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>
+			BF-A Web Client Updates
+		</title>
+		<link rel="stylesheet" href="update/updateStyles.css">
+		<script type="text/javascript" src="update/updateScript.js">
+		</script>
+		<link rel="stylesheet" href="../webclient/webclientStyles.css">
+		<script type="text/javascript" src="../webclient/webclientScript.js">
+		</script>
+	</head>
+	<body onload="updateOnLoad()">
+		<h1 id="heading">
+			BF-A Web Client Setup
+		</h1>
+		<table id="clientPort">
+			<thead>
+				<tr id="clientPortTopNavigation">
+					<th id="logoutNavigationHeader">
+						<a onClick="logoutBFAUserRequest()" id="logoutPseudoButton" href="../offline">
+							Logout
+						</a>
+					</th>
+					<th>
+						<a href="../webclient">
+							Main
+						</a>
+					</th>
+					<th>
+						<a href="../setup">
+							Setup
+						</a>
+					</th>
+					<th>
+						<a href="../bfaconsole">
+							BF-A Console
+						</a>
+					</th>
+					<th>
+					</th>
+					<th>
+					</th>
+					<th>
+					</th>
+					<th>
+						<a href="../update">
+							Update
+						</a>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td id="updatePort" colspan="8">
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

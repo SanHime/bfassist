@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>
+			BF-A Web Client(online)
+		</title>
+		<link rel="stylesheet" href="setup/setupStyles.css">
+		<script type="text/javascript" src="setup/setupScript.js">
+		</script>
+		<link rel="stylesheet" href="../webclient/webclientStyles.css">
+		<script type="text/javascript" src="../webclient/webclientScript.js">
+		</script>
+	</head>
+	<body onload="setupOnLoad()">
+		<h1 id="heading">
+			BF-A Web Client Setup
+		</h1>
+		<table id="clientPort">
+			<thead>
+				<tr id="clientPortTopNavigation">
+					<th id="logoutNavigationHeader">
+						<a onClick="logoutBFAUserRequest()" id="logoutPseudoButton" href="../offline">
+							Logout
+						</a>
+					</th>
+					<th>
+						<a href="../webclient">
+							Main
+						</a>
+					</th>
+					<th>
+						<a href="../setup">
+							Setup
+						</a>
+					</th>
+					<th>
+						<a href="../bfaconsole">
+							BF-A Console
+						</a>
+					</th>
+					<th>
+					</th>
+					<th>
+					</th>
+					<th>
+					</th>
+					<th>
+						<a href="../update">
+							Update
+						</a>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td id="setupPort" colspan="8">
+						<div id="bfaUsersScrollTableWrapper" class="scrollTableWrapper">
+							<h2>
+								BF-A Users
+							</h2>
+							<table id="bfaUsersScrollTable" class="scrollTable">
+								<thead>
+									<tr id="bfaUsersScrollTableHead" class="scrollTableHead">
+										<th class="scrollTableHeader">
+											Keyhash
+										</th>
+										<th class="scrollTableHeader">
+											Rights
+										</th>
+										<th class="scrollTableHeader">
+											User
+										</th>
+										<th class="scrollTableHeader">
+											Pass
+										</th>
+										<th class="scrollTableHeader">
+											Online
+										</th>
+										<th class="scrollTableHeader">
+											MultiLogin
+										</th>
+									</tr>
+								</thead>
+								<tbody id="bfaUsersScrollTableBody" class="scrollTableBody">
+								</tbody>
+							</table>
+						</div>
+						<div id="bfaServersScrollTableWrapper" class="scrollTableWrapper">
+							<h2>
+								BF-A Servers
+							</h2>
+							<table id="bfaServersScrollTable" class="scrollTable">
+								<thead>
+									<tr id="bfaServersScrollTableHead" class="scrollTableHead">
+										<th class="scrollTableHeader">
+											BFAName
+										</th>
+										<th class="scrollTableHeader">
+											BFPath
+										</th>
+										<th class="scrollTableHeader">
+											local_monitoring
+										</th>
+									</tr>
+								</thead>
+								<tbody id="bfaServersScrollTableBody" class="scrollTableBody">
+								</tbody>
+							</table>
+						</div>
+						<button onClick="document.getElementById('setupInputPortWrapper').style.visibility = 'visible';document.getElementById('createServerOption').style.visibility = 'visible';document.getElementById('createServerInputForm').style.visibility = 'visible';document.getElementById('setupInputPortSelector').value = 'createServer';document.getElementById('createBFAUserOption').style.visibility = 'visible';" type="button">
+							Add
+						</button>
+						<button onClick="document.getElementById('setupInputPortWrapper').style.visibility = 'visible';document.getElementById('editServerOption').style.visibility = 'visible';document.getElementById('editServerInputForm').style.visibility = 'visible';document.getElementById('setupInputPortSelector').value = 'editServer';document.getElementById('editBFAUserOption').style.visibility = 'visible';" type="button">
+							Edit
+						</button>
+						<button onClick="document.getElementById('setupInputPortWrapper').style.visibility = 'visible';document.getElementById('deleteServerOption').style.visibility = 'visible';document.getElementById('deleteServerInputForm').style.visibility = 'visible';document.getElementById('setupInputPortSelector').value = 'deleteServer';document.getElementById('deleteBFAUserOption').style.visibility = 'visible';" type="button">
+							Delete
+						</button>
+						<button onClick="startRequest()" type="button">
+							Start
+						</button>
+						<button onClick="stopRequest()" type="button">
+							Stop
+						</button>
+						<div id="setupInputPortWrapper" class="inputPortWrapper">
+							<div onClick="document.getElementById('setupInputPortWrapper').style.visibility = 'hidden';document.getElementById('createServerOption').style.visibility = 'hidden';document.getElementById('createServerInputForm').style.visibility = 'hidden';document.getElementById('createBFAUserOption').style.visibility = 'hidden';document.getElementById('createBFAUserInputForm').style.visibility = 'hidden';document.getElementById('editServerOption').style.visibility = 'hidden';document.getElementById('editServerInputForm').style.visibility = 'hidden';document.getElementById('editBFAUserOption').style.visibility = 'hidden';document.getElementById('editBFAUserInputForm').style.visibility = 'hidden';document.getElementById('deleteServerOption').style.visibility = 'hidden';document.getElementById('deleteServerInputForm').style.visibility = 'hidden';document.getElementById('deleteBFAUserOption').style.visibility = 'hidden';document.getElementById('deleteBFAUserInputForm').style.visibility = 'hidden';" id="setupInputPortCloseButton">
+								&#10006;
+							</div>
+							<select onChange="for (const option of this.options) { document.getElementById(option.value + 'InputForm').style.visibility = 'hidden';};document.getElementById(this.value + 'InputForm').style.visibility = 'visible';" id="setupInputPortSelector" class="inputPortSelector">
+								<option id="createServerOption" value="createServer">
+									createServer
+								</option>
+								<option id="createBFAUserOption" value="createBFAUser">
+									createBFAUser
+								</option>
+								<option id="editServerOption" value="editServer">
+									editServer
+								</option>
+								<option id="editBFAUserOption" value="editBFAUser">
+									editBFAUser
+								</option>
+								<option id="deleteServerOption" value="deleteServer">
+									deleteServer
+								</option>
+								<option id="deleteBFAUserOption" value="deleteBFAUser">
+									deleteBFAUser
+								</option>
+							</select>
+							<form id="createServerInputForm" class="inputForm">
+								<fieldset id="createServerFieldset">
+									<table>
+										<tbody>
+											<tr>
+												<td>
+													<table>
+														<tbody>
+															<tr>
+																<td>
+																	<label for="createServerBFAName">
+																		BFAName
+																		<input maxlength="32" size="32" type="text" id="createServerBFAName">
+																		</input>
+																	</label>
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<label for="createServerBFPath">
+																		BFPath
+																		<input maxlength="32" size="32" type="text" id="createServerBFPath">
+																		</input>
+																	</label>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</td>
+												<td>
+													<button onClick="createServerRequest()" type="button">
+														Submit
+													</button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</fieldset>
+							</form>
+							<form id="createBFAUserInputForm" class="inputForm">
+								<fieldset id="createBFAUserFieldset">
+									<table>
+										<tbody>
+											<tr>
+												<td>
+													<table>
+														<tbody>
+															<tr>
+																<td>
+																	<label for="createBFAUserKeyhash">
+																		Keyhash
+																		<input maxlength="32" size="32" type="text" id="createBFAUserKeyhash">
+																		</input>
+																	</label>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</td>
+												<td>
+													<button onClick="createBFAUserRequest()" type="button">
+														Submit
+													</button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</fieldset>
+							</form>
+							<form id="editServerInputForm" class="inputForm">
+								<fieldset id="editServerFieldset">
+									<table>
+										<tbody>
+											<tr>
+												<td>
+													<table>
+														<tbody>
+															<tr>
+																<td>
+																	<label for="editServerBFAName">
+																		BFAName
+																		<input maxlength="32" size="32" type="text" id="editServerBFAName">
+																		</input>
+																	</label>
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<label for="editServernewBFAName">
+																		newBFAName
+																		<input maxlength="32" size="32" type="text" id="editServernewBFAName">
+																		</input>
+																	</label>
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<label for="editServernewBFPath">
+																		newBFPath
+																		<input maxlength="32" size="32" type="text" id="editServernewBFPath">
+																		</input>
+																	</label>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</td>
+												<td>
+													<button onClick="editServerRequest()" type="button">
+														Submit
+													</button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</fieldset>
+							</form>
+							<form id="editBFAUserInputForm" class="inputForm">
+								<fieldset id="editBFAUserFieldset">
+									<table>
+										<tbody>
+											<tr>
+												<td>
+													<table>
+														<tbody>
+															<tr>
+																<td>
+																	<label for="editBFAUserKeyhash">
+																		Keyhash
+																		<input maxlength="32" size="32" type="text" id="editBFAUserKeyhash">
+																		</input>
+																	</label>
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<label for="editBFAUsernewKeyhash">
+																		newKeyhash
+																		<input maxlength="32" size="32" type="text" id="editBFAUsernewKeyhash">
+																		</input>
+																	</label>
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<label for="editBFAUsernewRights">
+																		newRights
+																		<input maxlength="32" size="32" type="text" id="editBFAUsernewRights">
+																		</input>
+																	</label>
+																</td>
+															</tr>
+															<tr>
+																<td>
+																	<label for="editBFAUsernewMultiLogin">
+																		newMultiLogin
+																		<input maxlength="32" size="32" type="text" id="editBFAUsernewMultiLogin">
+																		</input>
+																	</label>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</td>
+												<td>
+													<button onClick="editBFAUserRequest()" type="button">
+														Submit
+													</button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</fieldset>
+							</form>
+							<form id="deleteServerInputForm" class="inputForm">
+								<fieldset id="deleteServerFieldset">
+									<table>
+										<tbody>
+											<tr>
+												<td>
+													<table>
+														<tbody>
+															<tr>
+																<td>
+																	<label for="deleteServerBFAName">
+																		BFAName
+																		<input maxlength="32" size="32" type="text" id="deleteServerBFAName">
+																		</input>
+																	</label>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</td>
+												<td>
+													<button onClick="deleteServerRequest()" type="button">
+														Submit
+													</button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</fieldset>
+							</form>
+							<form id="deleteBFAUserInputForm" class="inputForm">
+								<fieldset id="deleteBFAUserFieldset">
+									<table>
+										<tbody>
+											<tr>
+												<td>
+													<table>
+														<tbody>
+															<tr>
+																<td>
+																	<label for="deleteBFAUserKeyhash">
+																		Keyhash
+																		<input maxlength="32" size="32" type="text" id="deleteBFAUserKeyhash">
+																		</input>
+																	</label>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</td>
+												<td>
+													<button onClick="deleteBFAUserRequest()" type="button">
+														Submit
+													</button>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</fieldset>
+							</form>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

@@ -1,0 +1,37 @@
+h1 {
+	color: rgba(126,187,153,1.00);
+	text-align: center;
+}
+
+button {
+	font-size: 25px;
+	color: rgba(79,169,255,1.00);
+	font-family: "Agency FB", sans-serif;
+	border-radius: 15px;
+	cursor: pointer;
+}
+
+div {
+	color: rgba(255,121,91,1.00);
+	font-size: 25px;
+	text-align: center;
+}
+
+fieldset {
+	width: 400px;
+	top: 50%;
+	font-weight: bold;
+	transform: translateX(-50%) translateY(-50%);
+	color: rgba(79,169,255,1.00);
+	left: 50%;
+	position: absolute;
+	margin-bottom: 15px;
+}
+
+body {
+	font-family: "Agency FB", sans-serif;
+	padding: 1% 5% 5% 5%;
+	background-color: rgba(0,0,0,0.70);
+	color: rgba(79,169,255,1.00);
+}
+

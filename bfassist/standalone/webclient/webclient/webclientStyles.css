@@ -1,0 +1,47 @@
+h1 {
+	color: rgba(126,187,153,1.00);
+	text-align: center;
+}
+
+tr#clientPortTopNavigation th#logoutNavigationHeader {
+	border: 2px solid rgb(255,121,91);
+}
+
+a#logoutPseudoButton {
+	color: rgb(255,121,91);
+	cursor: pointer;
+}
+
+tr#clientPortTopNavigation th {
+	border: 2px solid rgb(126,187,153);
+	border-radius: 20px;
+	width: 12.5%;
+	font-weight: bold;
+	height: 30px;
+}
+
+a {
+	cursor: pointer;
+	color: rgb(126,187,153);
+	font-weight: bold;
+	font-size: 25px;
+	display: block;
+	text-decoration: none;
+}
+
+table#clientPort {
+	width: 1200px;
+	height: 600px;
+	border-radius: 25px;
+	margin: auto;
+	text-align: center;
+	border: 5px solid rgb(32,37,89);
+}
+
+body {
+	font-family: "Agency FB", sans-serif;
+	padding: 1% 5% 5% 5%;
+	background-color: rgba(0,0,0,0.70);
+	color: rgba(79,169,255,1.00);
+}
+
